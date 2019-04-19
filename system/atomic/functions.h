@@ -88,7 +88,7 @@ T AtomicGet(const T* ptr)
 }
 // It's OK? TODO
 template <>
-bool AtomicGet(const bool* ptr)
+inline bool AtomicGet(const bool* ptr)
 {
     return *ptr;
 }
