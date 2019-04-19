@@ -871,7 +871,7 @@ bool URI::WriteToBuffer(char* buffer, size_t buffer_size, size_t* result_size) c
     if (buffer_size < 1)
     {
         result_size = 0;
-        return -1;
+        return false;
     }
 
     std::ostrstream oss(buffer, buffer_size);
