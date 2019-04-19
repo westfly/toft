@@ -84,11 +84,11 @@ struct ByteOrderSwapper : public ByteOrderSwapperBase<Size> {
 #if TOFT_BYTE_ORDER == TOFT_BIG_ENDIAN
     template <typename T> static T ToBig(T value) { return value; }
     template <typename T> static T FromBig(T value) { return value; }
-    template <typename T> static T ToLittle(T value) { return Swap(value); }
-    template <typename T> static T FromLittle(T value) { return Swap(value); }
+    template <typename T> static T ToLittle(T value) { return ByteOrderSwapper::Swap(value); }
+    template <typename T> static T FromLittle(T value) { return ByteOrderSwapper::Swap(value); }
 #elif TOFT_BYTE_ORDER == TOFT_LITTLE_ENDIAN
-    template <typename T> static T ToBig(T value) { return Swap(value); }
-    template <typename T> static T FromBig(T value) { return Swap(value); }
+    template <typename T> static T ToBig(T value) { return ByteOrderSwapper::Swap(value); }
+    template <typename T> static T FromBig(T value) { return ByteOrderSwapper::Swap(value); }
     template <typename T> static T ToLittle(T value) { return value; }
     template <typename T> static T FromLittle(T value) { return value; }
 #endif
