@@ -86,6 +86,12 @@ T AtomicGet(const T* ptr)
     __sync_synchronize();
     return *ptr;
 }
+// It's OK? TODO
+template <>
+bool AtomicGet(const bool* ptr)
+{
+    return *ptr;
+}
 
 template <typename T>
 T AtomicSet(T* ptr, T value)
